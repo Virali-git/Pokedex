@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -9,60 +9,50 @@ import {
   List,
   ListItem,
   ListItemText,
+  Link,
 } from "@mui/material";
+import {
+  LinkStyle,
+  TypoBoxStyle,
+  ListItemStyle,
+  CardStyle,
+  Boxstyle,
+  CardMediaStyle,
+  CardContentStyle,
+  CardContentTypoStyle,
+  bottomTextStyle,
+  BoxMarginStyle,
+  ColumnTypoStyle,
+} from "./PokemonCard.styles";
 
- type AbilitiesType = {
-    ability: {
-      name: string;
-      url: string;
-    };
-  };
- interface CardType {
+type AbilitiesType = {
+  ability: {
     name: string;
-    height?: number;
-    weight?: number;
-    location?: string;
-    abilities?: AbilitiesType[];
-    image?:string;
-  }
+    url: string;
+  };
+};
+interface CardType {
+  name: string;
+  height?: number;
+  weight?: number;
+  location?: string;
+  abilities?: AbilitiesType[];
+  image?: string;
+}
 
-export const PokemonCard  = (props: CardType) => {
+export const PokemonCard = (props: CardType) => {
   const [loading, setLoading] = React.useState(true);
 
   return (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        borderRadius: "12px",
-        overflow: "hidden",
-      }}
-    >
+    <Card sx={CardStyle}>
       {loading && (
-        <Box
-          sx={{
-            width: "100%",
-            height: "200px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#f3f3f3",
-          }}
-        >
+        <Box sx={Boxstyle}>
           <CircularProgress color="secondary" />
         </Box>
       )}
 
       <CardMedia
-        sx={{
-          width: "100%",
-          height: "300px",
-          objectFit: "cover",
-          borderTopLeftRadius: "12px",
-          borderTopRightRadius: "12px",
-        }}
+        sx={CardMediaStyle}
         component="img"
         image={props.image}
         title={props.name}
@@ -70,20 +60,16 @@ export const PokemonCard  = (props: CardType) => {
         onLoad={() => setLoading(false)}
         onError={() => setLoading(false)}
       />
-      <CardContent sx={{ textAlign: "center" }}>
+      <CardContent sx={CardContentStyle}>
         <Typography
           gutterBottom
           variant="h4"
           component="div"
-          sx={{
-            textTransform: "capitalize",
-            fontWeight: "bold",
-            color: "#333",
-          }}
+          sx={CardContentTypoStyle}
         >
           {props.name}
         </Typography>
-        <Box sx={{ display: "flex", gap: 5, justifyContent: "center" }}>
+        <Box sx={bottomTextStyle}>
           <Typography variant="body2" color="text.secondary">
             Height: {props.height}
           </Typography>
@@ -91,34 +77,17 @@ export const PokemonCard  = (props: CardType) => {
             Weight: {props.weight}
           </Typography>
         </Box>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ display: "flex", flexDirection: "column", marginTop: "10px" }}
-        >
+        <Typography variant="body2" color="text.secondary" sx={ColumnTypoStyle}>
           Location:
-          <a
-            href={props.location}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              textDecoration: "none",
-              color: "#007bff",
-              fontWeight: "bold",
-            }}
-          >
+          <Link href={props.location} target="_blank" sx={LinkStyle}>
             {props.location}
-          </a>
+          </Link>
         </Typography>
-        <Box sx={{ marginTop: "20px" }}>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ fontWeight: "bold", color: "#333" }}
-          >
+        <Box sx={BoxMarginStyle}>
+          <Typography variant="h6" component="div" sx={TypoBoxStyle}>
             Abilities
           </Typography>
-          <List dense={false} sx={{ lineHeight: "1px", textAlign: "left" }}>
+          <List dense={false} sx={ListItemStyle}>
             {props.abilities.map((ability, i) => (
               <ListItem key={i}>
                 <ListItemText
@@ -133,4 +102,3 @@ export const PokemonCard  = (props: CardType) => {
     </Card>
   );
 };
-

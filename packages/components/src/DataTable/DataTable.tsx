@@ -2,6 +2,7 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { GridColDef, GridPaginationModel } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
+import { WrapperStyle, DataGridStyle } from "./DataTable.styles";
 
 export type RowData = { name: string; url: string };
 
@@ -28,14 +29,9 @@ export const DataTable = ({
   rowCount,
 }: IDataTableProps) => {
   return (
-    <Box sx={{ height: "100vh", width: "100%" }}>
+    <Box sx={WrapperStyle}>
       <DataGrid
-        sx={{
-          "& .MuiDataGrid-row:hover": {
-            cursor: "pointer",
-            backgroundColor: "#ADD8E6",
-          },
-        }}
+        sx={DataGridStyle}
         rows={rows}
         columns={column}
         pageSizeOptions={pageSizeOptions}

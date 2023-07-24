@@ -2388,7 +2388,7 @@
     picocolors "^1.0.0"
     tslib "^2.5.0"
 
-"@pokedex/components@file:/home/neosoft/Desktop/Assignment /Pokedex-Repo/packages/components":
+"@pokedex/components@file:/home/neosoft/Desktop/Assignment /Pokedex/packages/components":
   version "0.1.0"
   resolved "file:packages/components"
   dependencies:
@@ -2404,7 +2404,7 @@
     typescript "^4.9.5"
     web-vitals "^2.1.4"
 
-"@pokedex/utils@file:/home/neosoft/Desktop/Assignment /Pokedex-Repo/packages/utils":
+"@pokedex/utils@file:/home/neosoft/Desktop/Assignment /Pokedex/packages/utils":
   version "1.0.0"
   resolved "file:packages/utils"
 
@@ -8593,7 +8593,7 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-"pokedex@file:/home/neosoft/Desktop/Assignment /Pokedex-Repo/packages/pokedex":
+"pokedex@file:/home/neosoft/Desktop/Assignment /Pokedex/packages/pokedex":
   version "0.1.0"
   resolved "file:packages/pokedex"
   dependencies:

@@ -1,9 +1,6 @@
-import * as React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
-import {DataTable} from './DataTable';
-
-
-
+import * as React from "react";
+import { render } from "@testing-library/react";
+import { DataTable } from "./DataTable";
 
 test("DataTable renders without crashing", () => {
   const rows = [{ name: "John Doe", url: "https://example.com" }];
