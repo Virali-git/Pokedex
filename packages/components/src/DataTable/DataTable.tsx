@@ -1,6 +1,7 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { GridColDef, GridPaginationModel } from "@mui/x-data-grid";
+import Box from "@mui/material/Box";
 
 export type RowData = { name: string; url: string };
 
@@ -27,7 +28,7 @@ export const DataTable = ({
   rowCount,
 }: IDataTableProps) => {
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <Box sx={{ height: "100vh", width: "100%" }}>
       <DataGrid
         sx={{
           "& .MuiDataGrid-row:hover": {
@@ -47,6 +48,6 @@ export const DataTable = ({
         onPaginationModelChange={paginationModelChange}
         loading={isLoading}
       />
-    </div>
+    </Box>
   );
 };

@@ -6,6 +6,8 @@ import { fetchPockenDetail, selectPokemonDetail } from "../store/pokeDetail";
 import { useRouter } from "next/router";
 import { PokemonType } from "../types/index.types";
 import { GetServerSideProps } from "next";
+import Box from "@mui/material/Box";
+
 
 const PokemonDetails = () => {
   const details: PokemonType | null = useSelector(selectPokemonDetail);
@@ -22,14 +24,14 @@ const PokemonDetails = () => {
   };
   return (
     <>
-      <div style={{ paddingTop: "80px" }} className="back-container">
+      <Box sx={{ paddingTop: "80px" }} className="back-container">
         <PrimaryButton
           className="back-container"
           onClickFunction={goBackHandler}
           buttonText="Go back to pokes"
         />
-      </div>
-      <div className="card-container">
+      </Box>
+      <Box className="card-container">
         <PokemonCard
           name={details?.name ?? ""}
           height={details?.height}
@@ -38,7 +40,7 @@ const PokemonDetails = () => {
           abilities={details?.abilities ?? []}
           image={getImageUrl(details?.id)}
         />
-      </div>
+      </Box>
     </>
   );
 };
