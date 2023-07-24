@@ -1,6 +1,4 @@
-//import { getApi } from "../helpers";
 import axios from "axios";
-
 import { BASE_URL } from "./base";
 
 /**
@@ -35,11 +33,15 @@ export const getApi = ({
  * @returns {Promise<any>} - A Promise that resolves to the data containing the list of Pokémon.
  */
 export const getPokeList = async (page: number, limit: number = 10) => {
-  const res = await getApi({
-    url: `${BASE_URL}?offset=${page}&limit=${limit}`,
-    method: "GET",
-  });
-  return res.data;
+  try {
+    const res = await getApi({
+      url: `${BASE_URL}?offset=${page}&limit=${limit}`,
+      method: "GET",
+    });
+    return res.data;
+  } catch (error) {
+    console.error("An error occurred while fetching the Pokémon List:", error);
+  }
 };
 
 /**
@@ -49,9 +51,16 @@ export const getPokeList = async (page: number, limit: number = 10) => {
  * @returns {Promise<any>} - A Promise that resolves to the data containing the Pokémon's details.
  */
 export const getPokeDetail = async (name: string) => {
-  const res = await getApi({
-    url: `${BASE_URL}/${name}`,
-    method: "GET",
-  });
-  return res.data;
+  try {
+    const res = await getApi({
+      url: `${BASE_URL}/${name}`,
+      method: "GET",
+    });
+    return res.data;
+  } catch (error) {
+    console.error(
+      "An error occurred while fetching the Pokémon Detail:",
+      error
+    );
+  }
 };

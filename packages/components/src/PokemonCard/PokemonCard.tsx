@@ -24,21 +24,7 @@ import {
   BoxMarginStyle,
   ColumnTypoStyle,
 } from "./PokemonCard.styles";
-
-type AbilitiesType = {
-  ability: {
-    name: string;
-    url: string;
-  };
-};
-interface CardType {
-  name: string;
-  height?: number;
-  weight?: number;
-  location?: string;
-  abilities?: AbilitiesType[];
-  image?: string;
-}
+import { CardType } from "./PokemonCard.types";
 
 export const PokemonCard = (props: CardType) => {
   const [loading, setLoading] = React.useState(true);
@@ -88,7 +74,7 @@ export const PokemonCard = (props: CardType) => {
             Abilities
           </Typography>
           <List dense={false} sx={ListItemStyle}>
-            {props.abilities.map((ability, i) => (
+            {props?.abilities?.map((ability, i) => (
               <ListItem key={i}>
                 <ListItemText
                   primary={ability.ability.name}

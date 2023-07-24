@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { wrapper } from "../store/store";
 import Layout from "../Layout";
 
-function MyApp({ Component, ...rest }: AppProps) {
+const MyApp = ({ Component, ...rest }: AppProps) => {
   const { store, props } = wrapper.useWrappedStore(rest);
   const { pageProps } = props;
   return (
@@ -14,6 +14,6 @@ function MyApp({ Component, ...rest }: AppProps) {
       </Layout>
     </Provider>
   );
-}
+};
 
 export default MyApp;

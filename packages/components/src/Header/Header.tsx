@@ -5,8 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { HeaderTypoStyle, AppBarStyle } from "./Header.styles";
-
-type PropsType = { data: string };
+import { PropsType } from "./Header.types";
 
 const StyledAppBar = styled(AppBar)(() => AppBarStyle);
 export const Header: React.FC<PropsType> = ({ data }) => {

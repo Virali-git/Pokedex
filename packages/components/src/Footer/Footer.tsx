@@ -5,11 +5,12 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { appBarStyle, ContainerStyle } from "./Footer.styles";
+import { PropsType } from "./Footer.types";
 
-type IProps = { data: string };
+//type PropsType = { data: string };
 
 const StyledAppBar = styled(AppBar)(({ theme }) => appBarStyle);
-export const Footer: React.FC<IProps> = ({ data }) => {
+export const Footer: React.FC<PropsType> = ({ data }) => {
   return (
     <StyledAppBar position="static">
       <Container maxWidth="lg" sx={ContainerStyle}>

@@ -3,20 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { GridColDef, GridPaginationModel } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import { WrapperStyle, DataGridStyle } from "./DataTable.styles";
+import { IDataTablePropsType, RowData } from "./DataTable.types";
 
-export type RowData = { name: string; url: string };
-
-interface IDataTableProps {
-  rows: RowData[];
-  column: GridColDef[];
-  onRowClick: ({ row }: { row: RowData }) => void;
-  getRowId: (row: RowData) => string | number;
-  pageSizeOptions: number[];
-  paginationModel: { page: number; pageSize: number };
-  paginationModelChange: (arg: GridPaginationModel) => void;
-  isLoading: boolean;
-  rowCount: number;
-}
 export const DataTable = ({
   rows,
   column,
@@ -27,7 +15,7 @@ export const DataTable = ({
   paginationModelChange,
   isLoading = false,
   rowCount,
-}: IDataTableProps) => {
+}: IDataTablePropsType) => {
   return (
     <Box sx={WrapperStyle}>
       <DataGrid

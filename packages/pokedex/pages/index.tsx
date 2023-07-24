@@ -11,21 +11,9 @@ import {
   setPagination,
 } from "../store/pokeList";
 import { useRouter } from "next/router";
+import {columns} from './../utility/constants';
 
 const Home: NextPage = () => {
-  const columns = [
-    {
-      field: "name",
-      headerName: "Name",
-      headerClassName: "super-app-theme--header",
-      flex: 1,
-    },
-    {
-      field: "url",
-      headerName: "Url",
-      flex: 1,
-    },
-  ];
   const router = useRouter();
   const dispatch = useDispatch() as DispatchAction;
   const pokemonList = useSelector(selectPokemonListData);

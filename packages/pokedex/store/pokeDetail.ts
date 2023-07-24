@@ -1,26 +1,12 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit";
-import { StoreState, StoreThunk } from "./store";
+import { StoreState } from "./store";
 import { HYDRATE } from "next-redux-wrapper";
 
 import { getPokeDetail } from "@pokedex/utils";
+import {IPokemonType} from "./store.types";
 
-export type AbilityType = {
-  ability: {
-    name: string;
-    url: string;
-  };
-};
-export type PokemonType = {
-  id:number;
-  name: string;
-  height?: number;
-  weight?: number;
-  location_area_encounters?: string;
-  abilities?: AbilityType[];
-  image?:string;
-  
-};
-const initialState: { data: PokemonType | null } = { data: null };
+
+const initialState: { data: IPokemonType | null } = { data: null };
 
 export const pokeDetailReducer = createSlice({
   name: "pokemonDetail",
@@ -47,11 +33,10 @@ export const selectPokemonDetail = (state: StoreState) =>
   state.pokemonDetail.data;
 
 export const fetchPockenDetail =
-  (name: string) =>
-  async (dispatch:Dispatch) => {
+  (name: string) => async (dispatch: Dispatch) => {
     try {
       const res = await getPokeDetail(name);
-      return dispatch(setPokemonDetail(res)); 
+      return dispatch(setPokemonDetail(res));
     } catch {
       dispatch(setPokemonDetail(null));
     }
