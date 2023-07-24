@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "npm install && lerna bootstrap",
+    "bootstrap-hoist":"npm lerna bootstrap --hoist",
     "compile:utils": "lerna run --scope @pokedex/utils --stream rollup",
     "compile:components": "lerna run --scope @pokedex/components --stream rollup",
     "compile": "lerna run --scope @pokedex/utils --stream rollup && lerna run --scope @pokedex/components --stream rollup",

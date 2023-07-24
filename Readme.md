@@ -26,19 +26,19 @@ To run the Pokemon application locally, you'll need to follow these steps:
 - `npm bootstrap` internally installed the dependencies of parent package.json and then run `lerna bootstrap --hoist` so that the dependencies of packages are installed.
 
 ```sh
-npm bootstrap
+npm run bootstrap-hoist
 ```
 **Compile packages required for pokedex**
 - `npm compile` compile the dependent packages i.e. `@pokedex/components` and `@pokedex/utils` with the help of rollup bundler, which is used in `pokedex` nextjs application.
 
 ```sh
-npm compile
+npm run compile
 ```
 
 #### Running the app in development
 - `npm run dev` runs the `pokedex` nextjs application in development mode
 ```sh
- npm dev
+ npm run dev
 ```
 
 #### Running the app for production
@@ -65,7 +65,7 @@ npm run build
 
 ```bash
 # unit tests
- npm test
+ npm run test
 
 ```
 
