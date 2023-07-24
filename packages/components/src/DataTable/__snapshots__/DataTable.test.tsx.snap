@@ -3,7 +3,7 @@
 exports[`DataTable renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    style="height: 100vh; width: 100%;"
+    class="MuiBox-root css-dzfx7t"
   >
     <div
       aria-colcount="1"

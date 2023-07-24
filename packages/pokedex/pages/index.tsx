@@ -48,7 +48,7 @@ const Home: NextPage = () => {
     dispatch(setPagination({ page: value.page, pageSize: value.pageSize }));
   };
   return (
-    <div>
+    
       <DataTable
         rows={pokemonList}
         column={columns}
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         paginationModel={paginationModel}
         paginationModelChange={handlePaginationChange}
       />
-    </div>
+    
   );
 };
 
